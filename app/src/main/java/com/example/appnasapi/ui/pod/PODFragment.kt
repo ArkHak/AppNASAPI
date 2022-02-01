@@ -1,5 +1,7 @@
 package com.example.appnasapi.ui.pod
 
+import android.content.Intent
+import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.view.Gravity
@@ -36,6 +38,14 @@ class PODFragment : Fragment() {
 
         viewModel.getData()
             .observe(viewLifecycleOwner, Observer<PODData> { renderData(it) })
+
+        //Поиск в Wiki по нажатию на custom_icon
+        input_wiki_layout.setEndIconOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data =
+                    Uri.parse("https://en.wikipedia.org/wiki/${input_edit_wiki_text.text.toString()}")
+            })
+        }
     }
 
     private fun renderData(data: PODData) {

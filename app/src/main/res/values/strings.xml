@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">AppNASAPI</string>
     <string name="nasa_photo_of_the_day">NASA Photo of the Day</string>
+    <string name="search_wiki">Wiki Search</string>
+    <string name="wiki_helper_text">Let\'s look up the term in Wikipedia!</string>
 </resources>

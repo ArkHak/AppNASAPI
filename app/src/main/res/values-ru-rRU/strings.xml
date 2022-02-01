@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="nasa_photo_of_the_day">Фотография дня от NASA</string>
+    <string name="search_wiki">Поиск Wikipedia</string>
+    <string name="wiki_helper_text">Давай найдем термин в Wikipedia!</string>
 </resources>

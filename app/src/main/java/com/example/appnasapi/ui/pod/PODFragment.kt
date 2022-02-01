@@ -10,9 +10,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import coil.load
 import com.example.appnasapi.R
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.main_fragment.*
 
 class PODFragment : Fragment() {
@@ -20,6 +23,8 @@ class PODFragment : Fragment() {
     private val viewModel: PODViewModel by lazy {
         ViewModelProvider(this)[PODViewModel::class.java]
     }
+
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
     companion object {
         fun newInstance() = PODFragment()
@@ -39,6 +44,8 @@ class PODFragment : Fragment() {
         viewModel.getData()
             .observe(viewLifecycleOwner, Observer<PODData> { renderData(it) })
 
+        setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
+
         //Поиск в Wiki по нажатию на custom_icon
         input_wiki_layout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
@@ -48,11 +55,18 @@ class PODFragment : Fragment() {
         }
     }
 
+    private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+    }
+
     private fun renderData(data: PODData) {
         when (data) {
             is PODData.Success -> {
                 val serverResponseData = data.serverResponseData
                 val url = serverResponseData.url
+                val title = serverResponseData.title
+                val explanation = serverResponseData.explanation
 
                 if (url.isNullOrEmpty()) {
                     toast("Link is empty")
@@ -62,6 +76,13 @@ class PODFragment : Fragment() {
                         error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.ic_no_photo_vector)
                     }
+                }
+
+                if (title.isNullOrEmpty() && explanation.isNullOrEmpty()) {
+                    toast("Fact is empty")
+                } else {
+                    bottom_sheet_description_header.text = title
+                    bottom_sheet_description.text = explanation
                 }
             }
             is PODData.Loading -> {

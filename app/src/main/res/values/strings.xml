@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">AppNASAPI</string>
+    <string name="app_name" translatable="false">AppNASAPI</string>
+    <string name="nasa_photo_of_the_day">NASA Photo of the Day</string>
 </resources>

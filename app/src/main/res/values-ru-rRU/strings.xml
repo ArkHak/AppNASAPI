@@ -3,4 +3,7 @@
     <string name="nasa_photo_of_the_day">Фотография дня от NASA</string>
     <string name="search_wiki">Поиск Wikipedia</string>
     <string name="wiki_helper_text">Давай найдем термин в Wikipedia!</string>
+    <string name="day_before_yesterday">Позавчера</string>
+    <string name="yesterday">Вчера</string>
+    <string name="today">Сегодня</string>
 </resources>

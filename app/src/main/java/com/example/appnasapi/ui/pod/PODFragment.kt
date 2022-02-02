@@ -11,6 +11,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import coil.load
+import com.cesarferreira.tempo.Tempo
+import com.cesarferreira.tempo.day
+import com.cesarferreira.tempo.toString
 import com.example.appnasapi.MainActivity
 import com.example.appnasapi.R
 import com.google.android.material.bottomappbar.BottomAppBar
@@ -53,6 +56,23 @@ class PODFragment : Fragment() {
                 data =
                     Uri.parse("https://en.wikipedia.org/wiki/${input_edit_wiki_text.text.toString()}")
             })
+        }
+
+        //Инициализация обработчика нажатий Chips_POD
+        initChipsPOD()
+    }
+
+    private fun initChipsPOD() {
+        pod_yesterday.setOnClickListener {
+            viewModel.sendServerRequest(Tempo.yesterday.toString("yyyy-MM-dd"))
+        }
+
+        pod_today.setOnClickListener {
+            viewModel.sendServerRequest(Tempo.now.toString("yyyy-MM-dd"))
+        }
+
+        pod_day_before_yesterday.setOnClickListener {
+            viewModel.sendServerRequest(2.day.ago.toString("yyyy-MM-dd"))
         }
     }
 

@@ -64,15 +64,15 @@ class PODFragment : Fragment() {
 
     private fun initChipsPOD() {
         pod_yesterday.setOnClickListener {
-            viewModel.sendServerRequest(Tempo.yesterday.toString("yyyy-MM-dd"))
+            viewModel.sendServerRequest(Tempo.yesterday.toString(DATE_FORMAT))
         }
 
         pod_today.setOnClickListener {
-            viewModel.sendServerRequest(Tempo.now.toString("yyyy-MM-dd"))
+            viewModel.sendServerRequest(Tempo.now.toString(DATE_FORMAT))
         }
 
         pod_day_before_yesterday.setOnClickListener {
-            viewModel.sendServerRequest(2.day.ago.toString("yyyy-MM-dd"))
+            viewModel.sendServerRequest(2.day.ago.toString(DATE_FORMAT))
         }
     }
 

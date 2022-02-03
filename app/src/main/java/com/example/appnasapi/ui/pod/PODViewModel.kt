@@ -11,6 +11,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
+const val DATE_FORMAT = "yyyy-MM-dd"
+
 class PODViewModel(
     private val liveDataForViewToObserve: MutableLiveData<PODData> = MutableLiveData(),
     private val retrofitImpl: PODRetrofitImpl = PODRetrofitImpl()
@@ -21,7 +23,7 @@ class PODViewModel(
         return liveDataForViewToObserve
     }
 
-    fun sendServerRequest(date: String = Tempo.now.toString("yyyy-MM-dd")) {
+    fun sendServerRequest(date: String = Tempo.now.toString(DATE_FORMAT)) {
         liveDataForViewToObserve.value = PODData.Loading(null)
 
         val apiKey: String = BuildConfig.NASA_API_KEY

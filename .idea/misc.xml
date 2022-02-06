@@ -12,12 +12,17 @@
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_plus_fab.xml" value="0.3828125" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_search.xml" value="0.29814814814814816" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_send.xml" value="0.29814814814814816" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_settings.xml" value="0.33055555555555555" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_wikipedia.xml" value="0.35648148148148145" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/bottom_navigation_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/fragment_settings.xml" value="0.36666666666666664" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/main_activity.xml" value="0.36666666666666664" />
-        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/main_fragment.xml" value="0.2" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/main_fragment.xml" value="0.4" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/menu/menu_bottom_bar_other_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.36666666666666664" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/menu/menu_button_bar_navigation.xml" value="0.1" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/menu/menu_button_navigation_def.xml" value="0.36666666666666664" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.23854166666666668" />
       </map>
     </option>

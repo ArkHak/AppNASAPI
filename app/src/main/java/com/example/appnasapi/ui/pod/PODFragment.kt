@@ -31,7 +31,7 @@ class PODFragment : Fragment() {
 
     companion object {
         fun newInstance() = PODFragment()
-        private var isMain = true
+        var isMain = true
     }
 
     override fun onCreateView(
@@ -48,7 +48,6 @@ class PODFragment : Fragment() {
             .observe(viewLifecycleOwner, Observer<PODData> { renderData(it) })
 
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
-        setBottomAppBar(view)
 
         //Поиск в Wiki по нажатию на custom_icon
         input_wiki_layout.setEndIconOnClickListener {
@@ -82,40 +81,39 @@ class PODFragment : Fragment() {
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
     }
 
-    private fun setBottomAppBar(view: View) {
-        val context = activity as MainActivity
-        context.setSupportActionBar(view.findViewById(R.id.bottom_app_bar))
-
-        setHasOptionsMenu(true)
-
-        fab.setOnClickListener {
-            if (isMain) {
-                isMain = false
-                bottom_app_bar.navigationIcon = null
-                bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_back_fab))
-            } else {
-                isMain = true
-                bottom_app_bar.navigationIcon =
-                    ContextCompat.getDrawable(context, R.drawable.ic_hamburger_menu_bottom_bar)
-                bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-                fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_plus_fab))
-            }
-        }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                activity?.let {
-                    BottomNavigationDrawerFragment().show(it.supportFragmentManager, tag)
-                }
-            }
-        }
-
-
-        return super.onOptionsItemSelected(item)
-    }
+//    private fun setBottomAppBar(view: View) {
+//        val context = activity as MainActivity
+//        context.setSupportActionBar(view.findViewById(R.id.bottom_app_bar))
+//
+//        setHasOptionsMenu(true)
+//
+//        fab.setOnClickListener {
+//            if (isMain) {
+//                isMain = false
+//                bottom_app_bar.navigationIcon = null
+//                bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
+//                fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_back_fab))
+//            } else {
+//                isMain = true
+//                bottom_app_bar.navigationIcon =
+//                    ContextCompat.getDrawable(context, R.drawable.ic_hamburger_menu_bottom_bar)
+//                bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
+//                fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_plus_fab))
+//            }
+//        }
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            android.R.id.home -> {
+//                activity?.let {
+//                    BottomNavigationDrawerFragment().show(it.supportFragmentManager, tag)
+//                }
+//            }
+//        }
+//
+//        return super.onOptionsItemSelected(item)
+//    }
 
     private fun renderData(data: PODData) {
         when (data) {

@@ -73,6 +73,7 @@
 
 
         <com.example.appnasapi.customView.EquilateralImageView
+            android:background="@color/black"
             android:id="@+id/image_pod_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,26 +90,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include layout="@layout/bottom_sheet_layout" />
-
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottom_app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:backgroundTint="?colorPrimary"
-        app:fabAlignmentMode="center"
-        app:hideOnScroll="true"
-        app:layout_scrollFlags="scroll|enterAlways"
-        app:navigationIcon="@drawable/ic_hamburger_menu_bottom_bar" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="?colorAccent"
-        android:contentDescription="TODO"
-        app:layout_anchor="@id/bottom_app_bar"
-        app:srcCompat="@drawable/ic_plus_fab"
-        app:tint="#FFFFFF" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

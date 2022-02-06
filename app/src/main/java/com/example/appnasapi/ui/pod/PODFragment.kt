@@ -81,40 +81,6 @@ class PODFragment : Fragment() {
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
     }
 
-//    private fun setBottomAppBar(view: View) {
-//        val context = activity as MainActivity
-//        context.setSupportActionBar(view.findViewById(R.id.bottom_app_bar))
-//
-//        setHasOptionsMenu(true)
-//
-//        fab.setOnClickListener {
-//            if (isMain) {
-//                isMain = false
-//                bottom_app_bar.navigationIcon = null
-//                bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-//                fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_back_fab))
-//            } else {
-//                isMain = true
-//                bottom_app_bar.navigationIcon =
-//                    ContextCompat.getDrawable(context, R.drawable.ic_hamburger_menu_bottom_bar)
-//                bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-//                fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_plus_fab))
-//            }
-//        }
-//    }
-//
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            android.R.id.home -> {
-//                activity?.let {
-//                    BottomNavigationDrawerFragment().show(it.supportFragmentManager, tag)
-//                }
-//            }
-//        }
-//
-//        return super.onOptionsItemSelected(item)
-//    }
-
     private fun renderData(data: PODData) {
         when (data) {
             is PODData.Success -> {

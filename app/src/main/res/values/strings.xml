@@ -7,5 +7,9 @@
     <string name="yesterday">Yesterday</string>
     <string name="today">Today</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fab" translatable="false">FAB</string>
+    <string name="default_theme">Default Theme</string>
+    <string name="mars_theme">Mars Theme</string>
+    <string name="ufo_theme">UFO Theme</string>
+    <string name="selected_theme">Selected theme:</string>
 </resources>

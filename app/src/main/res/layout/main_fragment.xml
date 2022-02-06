@@ -26,9 +26,9 @@
             app:endIconDrawable="@drawable/ic_wikipedia"
             app:endIconMode="custom"
             app:helperText="@string/wiki_helper_text"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_edit_wiki_text"
@@ -63,14 +63,13 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/pod_today"
-                android:checked="true"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:text="@string/today" />
 
         </com.google.android.material.chip.ChipGroup>
-
 
         <com.example.appnasapi.customView.EquilateralImageView
             android:background="@color/black"
@@ -79,6 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginHorizontal="@dimen/marginHorizontal_pod_fragment"
+            android:background="@color/black"
             android:contentDescription="@string/nasa_photo_of_the_day"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"

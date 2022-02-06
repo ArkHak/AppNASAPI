@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="marginHorizontal_pod_fragment">8dp</dimen>
+    <dimen name="peek_height_bottom_sheet">100dp</dimen>
+    <dimen name="margin_top_bottom_sheet_line">5dp</dimen>
+    <dimen name="layout_height_bottom_sheet_line">1dp</dimen>
+    <dimen name="layout_width_bottom_sheet_line">100dp</dimen>
+    <dimen name="margin_top_BtS_header">5dp</dimen>
+    <dimen name="padding_s_BtS_header">10dp</dimen>
+    <dimen name="padding_e_BtS_header">10dp</dimen>
+    <dimen name="padding_s_BtS_description">10dp</dimen>
+    <dimen name="padding_e_BtS_description">10dp</dimen>
+    <dimen name="text_size_radioButton">14sp</dimen>
+    <dimen name="margin_s_radio_group">12dp</dimen>
+    <dimen name="margin_t_radio_group">6dp</dimen>
 </resources>

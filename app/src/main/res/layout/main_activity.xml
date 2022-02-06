@@ -3,7 +3,8 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?backgroundColorActivity">
 
 
     <fragment
@@ -30,10 +31,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="?colorAccent"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/fab"
         app:layout_anchor="@id/bottom_app_bar_navigation"
         app:srcCompat="@drawable/ic_plus_fab"
-        app:tint="#FFFFFF" />
+        app:tint="@color/color_ic_fab" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

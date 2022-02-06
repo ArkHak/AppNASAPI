@@ -7,4 +7,39 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Color ui -->
+    <color name="color_ic_fab">#FFFFFF</color>
+    <color name="background_bottom_sheet">#f6f6fa</color>
+    <color name="bottom_sheet_line">#663b4351</color>
+    <color name="textColor_BtS_header">#000000</color>
+    <color name="textColor_BtS_description">#000000</color>
+
+    <!-- Color Day -->
+    <color name="primary_day">#0095a8</color>
+    <color name="primary_variant_day">#26c6da</color>
+    <color name="secondary_day">#f48fb1</color>
+    <color name="secondary_variant_day">#bf5f82</color>
+    <color name="on_primary_day">#000000</color>
+    <color name="on_secondary_day">#000000</color>
+    <color name="background_day">#aaeff7</color>
+
+    <!-- Color Red -->
+    <color name="primary_red">#b71c1c</color>
+    <color name="primary_variant_red">#7f0000</color>
+    <color name="secondary_red">#c2185b</color>
+    <color name="secondary_variant_red">#8c0032</color>
+    <color name="on_primary_red">#ffffff</color>
+    <color name="on_secondary_red">#000000</color>
+    <color name="background_red">#fc9494</color>
+
+    <!-- Color Green -->
+    <color name="primary_green">#388e3c</color>
+    <color name="primary_variant_green">#6abf69</color>
+    <color name="secondary_green">#8bc34a</color>
+    <color name="secondary_variant_green">#5a9216</color>
+    <color name="on_primary_green">#000000</color>
+    <color name="on_secondary_green">#000000</color>
+    <color name="background_green">#c4ffc6</color>
+
 </resources>

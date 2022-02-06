@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="bottom_sheet_line">
+        <item name="android:layout_marginTop">@dimen/margin_top_bottom_sheet_line</item>
+        <item name="android:background">@color/bottom_sheet_line</item>
+        <item name="android:layout_width">@dimen/layout_width_bottom_sheet_line</item>
+        <item name="android:layout_height">@dimen/layout_height_bottom_sheet_line</item>
+    </style>
+
+    <style name="bottom_sheet_description_header">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/textSize_BtS_header</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_BtS_header</item>
+        <item name="android:paddingStart">@dimen/padding_s_BtS_header</item>
+        <item name="android:paddingEnd">@dimen/padding_e_BtS_header</item>
+        <item name="android:textColor">@color/textColor_BtS_header</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="bottom_sheet_description">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/textSize_BtS_description</item>
+        <item name="android:paddingStart">@dimen/padding_s_BtS_description</item>
+        <item name="android:paddingEnd">@dimen/padding_e_BtS_description</item>
+        <item name="android:textColor">@color/textColor_BtS_description</item>
+        <item name="android:fontFamily">@font/allerta</item>
+    </style>
+
+    <style name="radiobutton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_radioButton</item>
+    </style>
+
+    <style name="radio_group">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_s_radio_group</item>
+        <item name="android:layout_marginTop">@dimen/margin_t_radio_group</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <dimen name="textSize_BtS_header">16sp</dimen>
+    <dimen name="textSize_BtS_description">16sp</dimen>
+</resources>

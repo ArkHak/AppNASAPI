@@ -1,9 +1,11 @@
 package com.example.appnasapi
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -23,12 +25,35 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(getAppTheme(R.style.Theme_AppNASAPI))
         setContentView(binding.root)
 
         buttonNavigationPanel.setupWithNavController(navigationController)
         setBottomAppBar()
 
     }
+
+    private fun getAppTheme(codeStyle: Int): Int {
+        return codeStyleToStyleId(getCodeStyle(codeStyle))
+    }
+
+    private fun getCodeStyle(codeStyle: Int): Int {
+        val sharedPref = getSharedPreferences(
+            NameSharedPreference,
+            MODE_PRIVATE
+        )
+        return sharedPref.getInt(APP_THEME_CODE, codeStyle)
+    }
+
+    private fun codeStyleToStyleId(codeStyle: Int): Int {
+        return when (codeStyle) {
+            CODE_DEF_THEME -> R.style.Theme_AppNASAPI
+            CODE_RED_THEME -> R.style.RedTheme
+            CODE_GREEN_THEME -> R.style.GreenTheme
+            else -> R.style.Theme_AppNASAPI
+        }
+    }
+
 
     private fun setBottomAppBar() {
         setSupportActionBar(binding.bottomAppBarNavigation)

@@ -6,4 +6,8 @@
     <string name="day_before_yesterday">Позавчера</string>
     <string name="yesterday">Вчера</string>
     <string name="today">Сегодня</string>
+    <string name="default_theme">Тема по умолчанию</string>
+    <string name="mars_theme">Тема Марс</string>
+    <string name="ufo_theme">Тема НЛО</string>
+    <string name="selected_theme">Выберете тему:</string>
 </resources>

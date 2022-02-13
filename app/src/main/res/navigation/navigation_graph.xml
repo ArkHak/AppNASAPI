@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/fragment_POD">
+    app:startDestination="@id/fragment_slider_POD">
 
     <fragment
-        android:id="@+id/fragment_POD"
-        android:name="com.example.appnasapi.ui.pod.PODFragment"
+        android:id="@+id/fragment_slider_POD"
+        android:name="com.example.appnasapi.PODSliderFragment"
         android:label="fragment_POD"
         tools:layout="@layout/fragment_pod" />
 

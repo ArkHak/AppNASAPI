@@ -15,4 +15,5 @@
     <dimen name="margin_t_radio_group">6dp</dimen>
     <dimen name="textSize_BtS_header">16sp</dimen>
     <dimen name="textSize_BtS_description">16sp</dimen>
+    <dimen name="tab_indicator_slider">4dp</dimen>
 </resources>

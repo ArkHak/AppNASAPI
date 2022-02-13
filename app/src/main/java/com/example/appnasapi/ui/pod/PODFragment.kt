@@ -1,7 +1,5 @@
 package com.example.appnasapi.ui.pod
 
-import android.content.Intent
-import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.view.*
@@ -13,10 +11,12 @@ import coil.load
 import com.cesarferreira.tempo.Tempo
 import com.cesarferreira.tempo.day
 import com.cesarferreira.tempo.toString
-import com.example.appnasapi.R
+import com.example.appnasapi.*
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.fragment_pod.*
+
+const val ARG_DAY_SLIDER = "ARG_DAY_SLIDER"
 
 class PODFragment : Fragment() {
 
@@ -41,21 +41,23 @@ class PODFragment : Fragment() {
 
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
 
-        //Инициализация обработчика нажатий Chips_POD
-        initChipsPOD()
+        //Инициализация слайдера
+        initSliderPOD()
     }
 
-    private fun initChipsPOD() {
-        pod_yesterday.setOnClickListener {
-            viewModel.sendServerRequest(Tempo.yesterday.toString(DATE_FORMAT))
-        }
-
-        pod_today.setOnClickListener {
-            viewModel.sendServerRequest(Tempo.now.toString(DATE_FORMAT))
-        }
-
-        pod_day_before_yesterday.setOnClickListener {
-            viewModel.sendServerRequest(2.day.ago.toString(DATE_FORMAT))
+    private fun initSliderPOD() {
+        arguments?.takeIf { it.containsKey(ARG_DAY_SLIDER) }?.apply {
+            when (getString(ARG_DAY_SLIDER)) {
+                TWO_DAY_AGO -> {
+                    viewModel.sendServerRequest(2.day.ago.toString(DATE_FORMAT))
+                }
+                YESTERDAY -> {
+                    viewModel.sendServerRequest(Tempo.yesterday.toString(DATE_FORMAT))
+                }
+                NOW -> {
+                    viewModel.sendServerRequest(Tempo.now.toString(DATE_FORMAT))
+                }
+            }
         }
     }
 

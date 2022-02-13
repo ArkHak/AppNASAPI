@@ -8,7 +8,7 @@
         android:title="@string/utils" />
 
     <item
-        android:id="@+id/fragment_POD"
+        android:id="@+id/fragment_slider_POD"
         android:icon="@drawable/ic_pod"
         android:title="@string/home" />
 

@@ -3,18 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/POD_fragment">
+    app:startDestination="@id/fragment_POD">
 
     <fragment
-        android:id="@+id/POD_fragment"
+        android:id="@+id/fragment_POD"
         android:name="com.example.appnasapi.ui.pod.PODFragment"
-        android:label="POD_fragment"
-        tools:layout="@layout/main_fragment" />
+        android:label="fragment_POD"
+        tools:layout="@layout/fragment_pod" />
 
     <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.example.appnasapi.SettingsFragment"
+        android:id="@+id/fragment_settings"
+        android:name="com.example.appnasapi.ui.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/fragment_utils"
+        android:name="com.example.appnasapi.ui.utils.UtilFragment"
+        android:label="fragment_utils"
+        tools:layout="@layout/fragment_utils" />
 
 </navigation>

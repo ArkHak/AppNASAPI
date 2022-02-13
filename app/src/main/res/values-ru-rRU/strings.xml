@@ -10,4 +10,7 @@
     <string name="mars_theme">Тема Марс</string>
     <string name="ufo_theme">Тема НЛО</string>
     <string name="selected_theme">Выберете тему:</string>
+    <string name="settings">Настройки</string>
+    <string name="home">Домой</string>
+    <string name="utils">Утилиты</string>
 </resources>

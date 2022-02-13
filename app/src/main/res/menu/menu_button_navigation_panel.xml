@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/fragment_utils"
+        android:icon="@drawable/ic_utils"
+        android:title="@string/utils" />
+
+    <item
+        android:id="@+id/fragment_POD"
+        android:icon="@drawable/ic_pod"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/fragment_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings" />
+
+</menu>

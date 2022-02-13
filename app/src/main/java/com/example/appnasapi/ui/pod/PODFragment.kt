@@ -8,18 +8,15 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import coil.load
 import com.cesarferreira.tempo.Tempo
 import com.cesarferreira.tempo.day
 import com.cesarferreira.tempo.toString
-import com.example.appnasapi.MainActivity
 import com.example.appnasapi.R
-import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
-import kotlinx.android.synthetic.main.main_fragment.*
+import kotlinx.android.synthetic.main.fragment_pod.*
 
 class PODFragment : Fragment() {
 
@@ -29,16 +26,11 @@ class PODFragment : Fragment() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
-    companion object {
-        fun newInstance() = PODFragment()
-        var isMain = true
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_pod, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,14 +40,6 @@ class PODFragment : Fragment() {
             .observe(viewLifecycleOwner, Observer<PODData> { renderData(it) })
 
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
-
-        //Поиск в Wiki по нажатию на custom_icon
-        input_wiki_layout.setEndIconOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data =
-                    Uri.parse("https://en.wikipedia.org/wiki/${input_edit_wiki_text.text.toString()}")
-            })
-        }
 
         //Инициализация обработчика нажатий Chips_POD
         initChipsPOD()

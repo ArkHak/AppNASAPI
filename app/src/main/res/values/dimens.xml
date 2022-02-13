@@ -13,4 +13,6 @@
     <dimen name="text_size_radioButton">14sp</dimen>
     <dimen name="margin_s_radio_group">12dp</dimen>
     <dimen name="margin_t_radio_group">6dp</dimen>
+    <dimen name="textSize_BtS_header">16sp</dimen>
+    <dimen name="textSize_BtS_description">16sp</dimen>
 </resources>

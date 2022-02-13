@@ -1,4 +1,4 @@
-package com.example.appnasapi
+package com.example.appnasapi.ui.settings
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.appnasapi.R
 import com.example.appnasapi.databinding.FragmentSettingsBinding
 
 const val NameSharedPreference = "SAVE_SP_THEME"

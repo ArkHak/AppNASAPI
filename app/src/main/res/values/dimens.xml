@@ -16,4 +16,10 @@
     <dimen name="textSize_BtS_header">16sp</dimen>
     <dimen name="textSize_BtS_description">16sp</dimen>
     <dimen name="tab_indicator_slider">4dp</dimen>
+    <dimen name="POD_layout_constraintVertical_bias">0.2</dimen>
+    <dimen name="bottomLeftRadius_bottom_sheet">0dp</dimen>
+    <dimen name="bottomRightRadius_bottom_sheet">0dp</dimen>
+    <dimen name="topLeftRadius_bottom_sheet">24dp</dimen>
+    <dimen name="topRightRadius_bottom_sheet">24dp</dimen>
+    <dimen name="radius_pod_image_background">12dp</dimen>
 </resources>

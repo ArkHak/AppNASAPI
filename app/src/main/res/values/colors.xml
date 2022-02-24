@@ -10,7 +10,8 @@
 
     <!-- Color ui -->
     <color name="color_ic_fab">#FFFFFF</color>
-    <color name="background_bottom_sheet">#f6f6fa</color>
+    <color name="color_background_bottom_sheet">#ccf6f6fa</color>
+    <color name="color_pod_image_background">#000000</color>
     <color name="bottom_sheet_line">#663b4351</color>
     <color name="textColor_BtS_header">#000000</color>
     <color name="textColor_BtS_description">#000000</color>

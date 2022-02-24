@@ -5,9 +5,10 @@
     android:id="@+id/bottom_sheet_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_bottom_sheet"
+    android:background="@drawable/bottom_sheet_background"
     android:visibility="visible"
     app:behavior_hideable="true"
+    android:layout_marginHorizontal="6dp"
     app:behavior_peekHeight="@dimen/peek_height_bottom_sheet"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 

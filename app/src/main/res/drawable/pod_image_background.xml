@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners
+        android:bottomLeftRadius="@dimen/radius_pod_image_background"
+        android:bottomRightRadius="@dimen/radius_pod_image_background"
+        android:topLeftRadius="@dimen/radius_pod_image_background"
+        android:topRightRadius="@dimen/radius_pod_image_background" />
+
+    <solid android:color="@color/color_pod_image_background" />
+</shape>

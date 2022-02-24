@@ -81,7 +81,7 @@ class PODFragment : Fragment() {
                     image_pod_view.load(url) {
                         lifecycle(this@PODFragment)
                         error(R.drawable.ic_load_error_vector)
-                        placeholder(R.drawable.ic_no_photo_vector)
+                        placeholder(R.drawable.loading)
                     }
                 }
 

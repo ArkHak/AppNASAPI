@@ -16,13 +16,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginHorizontal="@dimen/marginHorizontal_pod_fragment"
-            android:background="@color/black"
+            android:background="@drawable/pod_image_background"
             android:contentDescription="@string/nasa_photo_of_the_day"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="@dimen/POD_layout_constraintVertical_bias"
             app:srcCompat="@drawable/ic_no_photo_vector" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

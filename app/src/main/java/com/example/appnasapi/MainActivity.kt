@@ -23,20 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         buttonNavigationPanel.setupWithNavController(navigationController)
 
-        //setBottomNavPanel()
 
-
-    }
-
-    private fun setBottomNavPanel() {
-        buttonNavigationPanel.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.fragment_settings -> {
-                    return@setOnItemSelectedListener true
-                }
-            }
-            return@setOnItemSelectedListener true
-        }
     }
 
 

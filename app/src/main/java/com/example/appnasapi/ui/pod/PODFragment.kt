@@ -70,6 +70,9 @@ class PODFragment : Fragment() {
     private fun renderData(data: PODData) {
         when (data) {
             is PODData.Success -> {
+                image_pod_view_loading.visibility = View.GONE
+                image_pod_view.visibility = View.VISIBLE
+
                 val serverResponseData = data.serverResponseData
                 val url = serverResponseData.url
                 val title = serverResponseData.title
@@ -93,7 +96,8 @@ class PODFragment : Fragment() {
                 }
             }
             is PODData.Loading -> {
-
+                image_pod_view_loading.visibility = View.VISIBLE
+                image_pod_view.visibility = View.GONE
             }
             is PODData.Error -> {
                 toast(data.error.message)

@@ -22,4 +22,5 @@
     <dimen name="topLeftRadius_bottom_sheet">24dp</dimen>
     <dimen name="topRightRadius_bottom_sheet">24dp</dimen>
     <dimen name="radius_pod_image_background">12dp</dimen>
+    <dimen name="marginEnd_ic_wiki">16dp</dimen>
 </resources>

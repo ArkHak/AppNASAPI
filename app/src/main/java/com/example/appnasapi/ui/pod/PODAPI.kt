@@ -9,6 +9,7 @@ interface PODAPI {
     @GET("planetary/apod")
     fun getPOD(
         @Query("api_key") apiKey: String,
-        @Query("date") date: String
+        @Query("date") date: String,
+        @Query("thumbs") thumbs: Boolean = true
     ): Call<PODServerResponseData>
 }

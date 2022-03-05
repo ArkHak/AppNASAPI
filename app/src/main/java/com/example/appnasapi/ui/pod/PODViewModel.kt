@@ -19,11 +19,11 @@ class PODViewModel(
 ) : ViewModel() {
 
     fun getData(): LiveData<PODData> {
-        sendServerRequest()
         return liveDataForViewToObserve
     }
 
-    fun sendServerRequest(date: String = Tempo.now.toString(DATE_FORMAT)) {
+
+    fun sendServerRequest(date: String) {
         liveDataForViewToObserve.value = PODData.Loading(null)
 
         val apiKey: String = BuildConfig.NASA_API_KEY

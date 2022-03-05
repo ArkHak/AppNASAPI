@@ -1,27 +1,27 @@
 package com.example.appnasapi.ui.pod
 
-import android.content.Intent
-import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.transition.*
 import android.view.*
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import coil.load
 import com.cesarferreira.tempo.Tempo
 import com.cesarferreira.tempo.day
 import com.cesarferreira.tempo.toString
-import com.example.appnasapi.MainActivity
-import com.example.appnasapi.R
-import com.google.android.material.bottomappbar.BottomAppBar
+import com.example.appnasapi.*
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
-import kotlinx.android.synthetic.main.main_fragment.*
+import kotlinx.android.synthetic.main.fragment_pod.*
+
+const val ARG_DAY_SLIDER = "ARG_DAY_SLIDER"
 
 class PODFragment : Fragment() {
+    private var isExpanded = false
 
     private val viewModel: PODViewModel by lazy {
         ViewModelProvider(this)[PODViewModel::class.java]
@@ -29,16 +29,11 @@ class PODFragment : Fragment() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
-    companion object {
-        fun newInstance() = PODFragment()
-        private var isMain = true
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_pod, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,31 +43,46 @@ class PODFragment : Fragment() {
             .observe(viewLifecycleOwner, Observer<PODData> { renderData(it) })
 
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
-        setBottomAppBar(view)
 
-        //Поиск в Wiki по нажатию на custom_icon
-        input_wiki_layout.setEndIconOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data =
-                    Uri.parse("https://en.wikipedia.org/wiki/${input_edit_wiki_text.text.toString()}")
-            })
-        }
+        //Инициализация слайдера
+        initSliderPOD()
 
-        //Инициализация обработчика нажатий Chips_POD
-        initChipsPOD()
+        initExpandedPOD()
     }
 
-    private fun initChipsPOD() {
-        pod_yesterday.setOnClickListener {
-            viewModel.sendServerRequest(Tempo.yesterday.toString(DATE_FORMAT))
-        }
+    private fun initExpandedPOD() {
+        image_pod_view.setOnClickListener {
+            isExpanded = !isExpanded
+            TransitionManager.beginDelayedTransition(
+                fragment_main_pod, TransitionSet()
+                    .addTransition(ChangeBounds())
+                    .addTransition(ChangeImageTransform())
+            )
 
-        pod_today.setOnClickListener {
-            viewModel.sendServerRequest(Tempo.now.toString(DATE_FORMAT))
+            val params: ViewGroup.LayoutParams = image_pod_view.layoutParams
+            params.height =
+                if (isExpanded) ViewGroup.LayoutParams.MATCH_PARENT
+                else ViewGroup.LayoutParams.WRAP_CONTENT
+            image_pod_view.layoutParams = params
+            image_pod_view.scaleType =
+                if (isExpanded) ImageView.ScaleType.CENTER_CROP
+                else ImageView.ScaleType.FIT_CENTER
         }
+    }
 
-        pod_day_before_yesterday.setOnClickListener {
-            viewModel.sendServerRequest(2.day.ago.toString(DATE_FORMAT))
+    private fun initSliderPOD() {
+        arguments?.takeIf { it.containsKey(ARG_DAY_SLIDER) }?.apply {
+            when (getString(ARG_DAY_SLIDER)) {
+                TWO_DAY_AGO -> {
+                    viewModel.sendServerRequest(2.day.ago.toString(DATE_FORMAT))
+                }
+                YESTERDAY -> {
+                    viewModel.sendServerRequest(Tempo.yesterday.toString(DATE_FORMAT))
+                }
+                NOW -> {
+                    viewModel.sendServerRequest(Tempo.now.toString(DATE_FORMAT))
+                }
+            }
         }
     }
 
@@ -82,44 +92,12 @@ class PODFragment : Fragment() {
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
     }
 
-    private fun setBottomAppBar(view: View) {
-        val context = activity as MainActivity
-        context.setSupportActionBar(view.findViewById(R.id.bottom_app_bar))
-
-        setHasOptionsMenu(true)
-
-        fab.setOnClickListener {
-            if (isMain) {
-                isMain = false
-                bottom_app_bar.navigationIcon = null
-                bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_back_fab))
-            } else {
-                isMain = true
-                bottom_app_bar.navigationIcon =
-                    ContextCompat.getDrawable(context, R.drawable.ic_hamburger_menu_bottom_bar)
-                bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-                fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_plus_fab))
-            }
-        }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                activity?.let {
-                    BottomNavigationDrawerFragment().show(it.supportFragmentManager, tag)
-                }
-            }
-        }
-
-
-        return super.onOptionsItemSelected(item)
-    }
-
     private fun renderData(data: PODData) {
         when (data) {
             is PODData.Success -> {
+                image_pod_view_loading.visibility = View.GONE
+                image_pod_view.visibility = View.VISIBLE
+
                 val serverResponseData = data.serverResponseData
                 val url = serverResponseData.url
                 val title = serverResponseData.title
@@ -131,7 +109,7 @@ class PODFragment : Fragment() {
                     image_pod_view.load(url) {
                         lifecycle(this@PODFragment)
                         error(R.drawable.ic_load_error_vector)
-                        placeholder(R.drawable.ic_no_photo_vector)
+                        placeholder(R.drawable.loading)
                     }
                 }
 
@@ -143,7 +121,8 @@ class PODFragment : Fragment() {
                 }
             }
             is PODData.Loading -> {
-
+                image_pod_view_loading.visibility = View.VISIBLE
+                image_pod_view.visibility = View.GONE
             }
             is PODData.Error -> {
                 toast(data.error.message)

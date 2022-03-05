@@ -2,7 +2,9 @@ package com.example.appnasapi.ui.pod
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.transition.*
 import android.view.*
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -19,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment_pod.*
 const val ARG_DAY_SLIDER = "ARG_DAY_SLIDER"
 
 class PODFragment : Fragment() {
+    private var isExpanded = false
 
     private val viewModel: PODViewModel by lazy {
         ViewModelProvider(this)[PODViewModel::class.java]
@@ -43,6 +46,28 @@ class PODFragment : Fragment() {
 
         //Инициализация слайдера
         initSliderPOD()
+
+        initExpandedPOD()
+    }
+
+    private fun initExpandedPOD() {
+        image_pod_view.setOnClickListener {
+            isExpanded = !isExpanded
+            TransitionManager.beginDelayedTransition(
+                fragment_main_pod, TransitionSet()
+                    .addTransition(ChangeBounds())
+                    .addTransition(ChangeImageTransform())
+            )
+
+            val params: ViewGroup.LayoutParams = image_pod_view.layoutParams
+            params.height =
+                if (isExpanded) ViewGroup.LayoutParams.MATCH_PARENT
+                else ViewGroup.LayoutParams.WRAP_CONTENT
+            image_pod_view.layoutParams = params
+            image_pod_view.scaleType =
+                if (isExpanded) ImageView.ScaleType.CENTER_CROP
+                else ImageView.ScaleType.FIT_CENTER
+        }
     }
 
     private fun initSliderPOD() {

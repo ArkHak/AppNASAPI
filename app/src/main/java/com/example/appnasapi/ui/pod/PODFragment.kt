@@ -8,6 +8,7 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import coil.load
 import com.cesarferreira.tempo.Tempo
@@ -58,6 +59,8 @@ class PODFragment : Fragment() {
                     .addTransition(ChangeBounds())
                     .addTransition(ChangeImageTransform())
             )
+            if (isExpanded) is_favorite.visibility = View.GONE
+            else is_favorite.visibility = View.VISIBLE
 
             val params: ViewGroup.LayoutParams = image_pod_view.layoutParams
             params.height =
@@ -95,7 +98,7 @@ class PODFragment : Fragment() {
     private fun renderData(data: PODData) {
         when (data) {
             is PODData.Success -> {
-                image_pod_view_loading.visibility = View.GONE
+                image_pod_view_loading.visibility = View.VISIBLE
                 image_pod_view.visibility = View.VISIBLE
 
                 val serverResponseData = data.serverResponseData

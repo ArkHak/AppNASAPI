@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/fragment_favorites"
-        android:name="com.example.appnasapi.FavoritesFragment"
+        android:name="com.example.appnasapi.ui.favorites.FavoritesFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" />
 

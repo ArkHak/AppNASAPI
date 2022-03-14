@@ -1,5 +1,6 @@
 package com.example.appnasapi.ui.pod
 
+
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.transition.*
@@ -8,13 +9,15 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import coil.load
 import com.cesarferreira.tempo.Tempo
 import com.cesarferreira.tempo.day
 import com.cesarferreira.tempo.toString
 import com.example.appnasapi.*
+import com.example.appnasapi.bd.POD
+import com.example.appnasapi.bd.PODBDViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.fragment_pod.*
@@ -26,6 +29,10 @@ class PODFragment : Fragment() {
 
     private val viewModel: PODViewModel by lazy {
         ViewModelProvider(this)[PODViewModel::class.java]
+    }
+
+    private val podBDViewModel: PODBDViewModel by viewModels {
+        PODBDViewModel.PODViewModelFactory((activity?.application as App).repository)
     }
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
@@ -89,7 +96,6 @@ class PODFragment : Fragment() {
         }
     }
 
-
     private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
@@ -111,10 +117,12 @@ class PODFragment : Fragment() {
                 } else {
                     image_pod_view.load(url) {
                         lifecycle(this@PODFragment)
-                        error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.loading)
+                        error(R.drawable.ic_load_error_vector)
                     }
                 }
+
+                initToggleFavorite(data)
 
                 if (title.isNullOrEmpty() && explanation.isNullOrEmpty()) {
                     toast("Fact is empty")
@@ -129,6 +137,29 @@ class PODFragment : Fragment() {
             }
             is PODData.Error -> {
                 toast(data.error.message)
+            }
+        }
+    }
+
+    private fun initToggleFavorite(data: PODData.Success) {
+        val pod =
+            POD(data.serverResponseData.date.toString(),
+                data.serverResponseData.title.toString(),
+                data.serverResponseData.url.toString(),
+            )
+
+        podBDViewModel.allPods.observe(this, { podList ->
+            podList?.let {
+                val pods = podList
+                is_favorite.isChecked = pods.contains(pod)
+            }
+        })
+
+        is_favorite.setOnClickListener {
+            if (is_favorite.isChecked) {
+                podBDViewModel.insert(pod)
+            } else {
+                podBDViewModel.delete(pod)
             }
         }
     }

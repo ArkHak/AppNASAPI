@@ -1,4 +1,4 @@
-package com.example.appnasapi
+package com.example.appnasapi.ui.favorites
 
 import androidx.lifecycle.ViewModel
 

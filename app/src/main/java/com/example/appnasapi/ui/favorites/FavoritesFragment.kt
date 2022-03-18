@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.appnasapi.App
 import com.example.appnasapi.bd.PODBDViewModel
 import com.example.appnasapi.databinding.FragmentFavoritesBinding
@@ -15,7 +18,15 @@ class FavoritesFragment : Fragment() {
     private var _binding: FragmentFavoritesBinding? = null
     private val binding get() = _binding!!
 
-    private val adapter by lazy { PODAdapter() }
+    lateinit var itemTouchHelper: ItemTouchHelper
+
+    private val adapter by lazy {
+        PODAdapter(object : OnStartDragListener {
+            override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
+                itemTouchHelper.startDrag(viewHolder)
+            }
+        })
+    }
 
     private val viewModel: PODBDViewModel by viewModels {
         PODBDViewModel.PODViewModelFactory((activity?.application as App).repository)
@@ -31,13 +42,19 @@ class FavoritesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.recyclerViewPodList.adapter = adapter
+        itemTouchHelper = ItemTouchHelper(ItemTouchHelperCallback(adapter = adapter))
+        itemTouchHelper.attachToRecyclerView(binding.recyclerViewPodList)
+
         viewModel.allPods.observe(this, { podList ->
             podList?.let {
                 adapter.podList = podList
             }
         })
+
+        adapter.listenerRemovePODAtList = PODAdapter.removePODAtList { pod ->
+            viewModel.delete(pod)
+        }
     }
 
     override fun onDestroyView() {

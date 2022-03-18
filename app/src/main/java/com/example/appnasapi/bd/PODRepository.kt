@@ -18,5 +18,4 @@ class PODRepository(private val podDao: PODDao) {
     suspend fun delete(pod: POD) {
         podDao.delete(pod)
     }
-
 }

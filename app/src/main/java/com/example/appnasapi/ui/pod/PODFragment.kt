@@ -146,6 +146,7 @@ class PODFragment : Fragment() {
             POD(data.serverResponseData.date.toString(),
                 data.serverResponseData.title.toString(),
                 data.serverResponseData.url.toString(),
+                data.serverResponseData.explanation.toString(),
             )
 
         podBDViewModel.allPods.observe(this, { podList ->

@@ -13,6 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="backgroundColorActivity">@color/background_day</item>
+        <item name="backgroundColorPODCard">@color/backgroundPODCard_day</item>
 
         <item name="shapeAppearanceMediumComponent">@style/AppShapeAppearance.MediumComponent</item>
         <item name="shapeAppearanceLargeComponent">@style/AppShapeAppearance.LargeComponent</item>
@@ -29,6 +30,7 @@
         <item name="colorOnSecondary">@color/on_secondary_red</item>
 
         <item name="backgroundColorActivity">@color/background_red</item>
+        <item name="backgroundColorPODCard">@color/backgroundPODCard_red</item>
     </style>
 
     <style name="GreenTheme" parent="Theme.AppNASAPI">
@@ -41,6 +43,7 @@
         <item name="colorOnSecondary">@color/on_secondary_green</item>
 
         <item name="backgroundColorActivity">@color/background_green</item>
+        <item name="backgroundColorPODCard">@color/backgroundPODCard_green</item>
     </style>
 
 

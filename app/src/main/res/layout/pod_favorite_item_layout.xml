@@ -1,72 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/podItem"
     android:layout_width="match_parent"
-    android:layout_height="128dp"
-    android:layout_margin="6dp"
-    android:backgroundTint="?colorSecondaryVariant"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="3dp"
-    app:strokeColor="?colorPrimary"
-    app:strokeWidth="1dp">
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/podItem"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="128dp"
+        android:backgroundTint="?backgroundColorPODCard"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/pod_card_image"
-            android:layout_width="112dp"
-            android:layout_height="112dp"
-            android:layout_marginHorizontal="6dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="3dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5"
-            app:strokeColor="@color/black">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/pod_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_no_photo_vector" />
-        </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/pod_card_image"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_marginHorizontal="6dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5"
+                app:strokeColor="@color/black">
+
+                <ImageView
+                    android:id="@+id/pod_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/ic_no_photo_vector" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="end"
+                app:constraint_referenced_ids="pod_card_image"
+                tools:layout_editor_absoluteX="399dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pod_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ellipsize="end"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:hyphenationFrequency="full"
+                android:maxLines="2"
+                android:singleLine="false"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/barrier_btn"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@id/pod_date"
+                app:layout_constraintTop_toTopOf="@id/pod_card_image"
+                tools:text="Планета НИБИРУ" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pod_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/pod_card_image"
+                app:layout_constraintStart_toStartOf="@id/barrier"
+                app:layout_constraintTop_toTopOf="@id/pod_card_image"
+                app:layout_constraintVertical_bias="0.8"
+                tools:text="1996-07-07" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="start"
+                app:constraint_referenced_ids="moveItemPODUp,dragHandlePOD,moveItemPODDown"
+                tools:layout_editor_absoluteX="399dp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/moveItemPODUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.05"
+                app:srcCompat="@drawable/ic_up_pod_36" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dragHandlePOD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5"
+                app:srcCompat="@drawable/ic_drag_handle_36" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/moveItemPODDown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.95"
+                app:srcCompat="@drawable/ic_down_pod_36" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/podItem_card_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="6dp"
+        android:backgroundTint="?backgroundColorPODCard"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/podItem"
+        app:strokeColor="?colorPrimary"
+        app:strokeWidth="1dp">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/pod_title"
+            android:id="@+id/pod_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="2"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/pod_card_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.2"
-            app:layout_constraintStart_toEndOf="@id/pod_card_image"
-            app:layout_constraintTop_toTopOf="@id/pod_card_image"
-            app:layout_constraintVertical_bias="0.3"
-            tools:text="Планета НИБИРУ" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/pod_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:padding="6dp"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@id/pod_card_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.2"
-            app:layout_constraintStart_toEndOf="@id/pod_card_image"
-            app:layout_constraintTop_toTopOf="@id/pod_card_image"
-            app:layout_constraintVertical_bias="0.8"
-            tools:text="1996-07-07" />
+            android:visibility="gone"
+            tools:text="Марс -- четвёртая по удалённости от Солнца и седьмая по
+размерам планета Солнечной системы. Названа в честь Марса -- древнеримского бога
+войны, соответствующего древнегреческому Аресу. Иногда Марс называют «красной
+планетой» из-за красноватого оттенка поверхности, придаваемого ей минералом
+маггемитом (оксидом железа)." />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

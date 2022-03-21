@@ -13,14 +13,13 @@
 
         <ToggleButton
             android:id="@+id/is_favorite"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="@dimen/layout_w_is_favorite_toggle"
+            android:layout_height="@dimen/layout_h_is_favorite_toggle"
             android:background="@drawable/selector_like"
             android:textOff=""
             android:textOn=""
             app:layout_constraintBottom_toBottomOf="@id/image_pod_view_loading"
             app:layout_constraintEnd_toEndOf="@id/image_pod_view_loading" />
-
 
         <com.example.appnasapi.customView.EquilateralImageView
             android:id="@+id/image_pod_view_loading"
@@ -53,7 +52,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="@dimen/POD_layout_constraintVertical_bias" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include layout="@layout/bottom_sheet_layout" />

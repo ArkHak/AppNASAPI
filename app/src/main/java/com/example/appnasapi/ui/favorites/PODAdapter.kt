@@ -77,15 +77,14 @@ class PODAdapter(private val dragListener: OnStartDragListener) :
             }
         }
 
-        //TODO скорректировать
         override fun onItemSelected() {
             val podCard = itemView.findViewById<MaterialCardView>(R.id.podItem)
-            podCard.alpha  = 0.6f
+            podCard.alpha = 0.6f
         }
 
         override fun onItemClear() {
             val podCard = itemView.findViewById<MaterialCardView>(R.id.podItem)
-            podCard.alpha  = 1f
+            podCard.alpha = 1f
         }
     }
 

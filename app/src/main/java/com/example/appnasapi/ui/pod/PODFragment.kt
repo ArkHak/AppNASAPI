@@ -1,8 +1,13 @@
 package com.example.appnasapi.ui.pod
 
 
+import android.graphics.Color
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
 import android.transition.*
 import android.view.*
 import android.widget.ImageView
@@ -21,6 +26,7 @@ import com.example.appnasapi.bd.PODBDViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.fragment_pod.*
+import kotlinx.android.synthetic.main.pod_favorite_item_layout.*
 
 const val ARG_DAY_SLIDER = "ARG_DAY_SLIDER"
 
@@ -109,7 +115,17 @@ class PODFragment : Fragment() {
 
                 val serverResponseData = data.serverResponseData
                 val url = serverResponseData.url
-                val title = serverResponseData.title
+                val titleSpan = SpannableString(serverResponseData.title)
+                titleSpan.setSpan(
+                    ForegroundColorSpan(Color.RED),
+                    0, 1,
+                    Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+                )
+                titleSpan.setSpan(
+                    ForegroundColorSpan(Color.RED),
+                    titleSpan.length - 1, titleSpan.length,
+                    Spannable.SPAN_INCLUSIVE_EXCLUSIVE
+                )
                 val explanation = serverResponseData.explanation
 
                 if (url.isNullOrEmpty()) {
@@ -124,10 +140,10 @@ class PODFragment : Fragment() {
 
                 initToggleFavorite(data)
 
-                if (title.isNullOrEmpty() && explanation.isNullOrEmpty()) {
+                if (titleSpan.isEmpty() && explanation.isNullOrEmpty()) {
                     toast("Fact is empty")
                 } else {
-                    bottom_sheet_description_header.text = title
+                    bottom_sheet_description_header.text = titleSpan
                     bottom_sheet_description.text = explanation
                 }
             }
@@ -143,7 +159,8 @@ class PODFragment : Fragment() {
 
     private fun initToggleFavorite(data: PODData.Success) {
         val pod =
-            POD(data.serverResponseData.date.toString(),
+            POD(
+                data.serverResponseData.date.toString(),
                 data.serverResponseData.title.toString(),
                 data.serverResponseData.url.toString(),
                 data.serverResponseData.explanation.toString(),

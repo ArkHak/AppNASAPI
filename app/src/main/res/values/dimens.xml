@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="marginHorizontal_pod_fragment">8dp</dimen>
+    <dimen name="marginHorizontal_pod_fragment">10dp</dimen>
     <dimen name="peek_height_bottom_sheet">100dp</dimen>
     <dimen name="margin_top_bottom_sheet_line">5dp</dimen>
     <dimen name="layout_height_bottom_sheet_line">1dp</dimen>
@@ -40,7 +40,7 @@
     <dimen name="layout_marginT_podTitle">16dp</dimen>
     <dimen name="textSize_podTitle">14sp</dimen>
     <dimen name="layout_marginS_podDate">16dp</dimen>
-    <dimen name="textSize_podDate">12sp</dimen>
+    <dimen name="textSize_podDate">14sp</dimen>
     <dimen name="layout_marginH_moveItemPOD">10dp</dimen>
     <dimen name="layout_marginH_podItemDescription">6dp</dimen>
     <dimen name="cornerRadius_podItemDescription">8dp</dimen>

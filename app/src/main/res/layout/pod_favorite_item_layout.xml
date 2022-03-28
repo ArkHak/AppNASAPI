@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/layout_marginS_podDate"
-                android:textColor="@color/black"
+                android:textColor="@color/grey"
                 android:textSize="@dimen/textSize_podDate"
                 app:layout_constraintBottom_toBottomOf="@id/pod_card_image"
                 app:layout_constraintStart_toStartOf="@id/barrier"

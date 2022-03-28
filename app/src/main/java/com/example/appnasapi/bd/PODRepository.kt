@@ -16,6 +16,6 @@ class PODRepository(private val podDao: PODDao) {
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun delete(pod: POD) {
-        podDao.delete(pod)
+        podDao.delete(pod.date)
     }
 }

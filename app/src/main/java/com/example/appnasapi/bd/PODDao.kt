@@ -12,6 +12,6 @@ interface PODDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(vararg pod: POD)
 
-    @Delete
-    suspend fun delete(pod: POD)
+    @Query("DELETE FROM Pods WHERE date = :date")
+    suspend fun delete(date: String)
 }

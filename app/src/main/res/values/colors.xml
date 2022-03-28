@@ -6,6 +6,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="grey">#AA000000</color>
     <color name="white">#FFFFFFFF</color>
 
     <!-- Color ui -->
@@ -14,7 +15,7 @@
     <color name="color_pod_image_background">#000000</color>
     <color name="bottom_sheet_line">#663b4351</color>
     <color name="textColor_BtS_header">#000000</color>
-    <color name="textColor_BtS_description">#000000</color>
+    <color name="textColor_BtS_description">#BA000000</color>
 
     <!-- Color Day -->
     <color name="primary_day">#0095a8</color>

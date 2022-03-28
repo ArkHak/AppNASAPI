@@ -8,7 +8,7 @@
         android:fillColor="#C74343"
         android:fillType="nonZero"
         android:pathData="M352.332,66.395L127.668,66.395L127.668,407.293L235.434,353.414L240,351.129L244.566,353.414L352.332,407.293L352.332,66.395M362.543,56.184L362.543,423.816L240,362.543L117.457,423.816L117.457,56.184ZM362.543,56.184"
-        android:strokeWidth="10"
+        android:strokeWidth="42"
         android:strokeColor="#C74343"
         android:strokeLineCap="butt"
         android:strokeLineJoin="round" />

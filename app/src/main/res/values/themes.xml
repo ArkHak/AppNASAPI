@@ -57,4 +57,9 @@
         <item name="cornerSize">16dp</item>
     </style>
 
+    <style name="Theme.AppNASAPI.Splash">
+        <item
+            name="android:windowBackground">@drawable/splash_background_drawable</item>
+    </style>
+
 </resources>

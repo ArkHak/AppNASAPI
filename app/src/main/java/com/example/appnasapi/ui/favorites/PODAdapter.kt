@@ -111,7 +111,7 @@ class PODAdapter(private val dragListener: OnStartDragListener) :
     }
 
     override fun onItemDismiss(position: Int) {
-        //listenerRemovePODAtList?.podRemove(podList[position])
+        listenerRemovePODAtList?.podRemove(podList[position])
         podList.removeAt(position)
         notifyItemRemoved(position)
     }

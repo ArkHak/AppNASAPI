@@ -1,22 +1,32 @@
 package com.example.appnasapi.ui.pod
 
+
+import android.graphics.Color
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
 import android.transition.*
 import android.view.*
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import coil.load
 import com.cesarferreira.tempo.Tempo
 import com.cesarferreira.tempo.day
 import com.cesarferreira.tempo.toString
 import com.example.appnasapi.*
+import com.example.appnasapi.bd.POD
+import com.example.appnasapi.bd.PODBDViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.fragment_pod.*
+import kotlinx.android.synthetic.main.pod_favorite_item_layout.*
 
 const val ARG_DAY_SLIDER = "ARG_DAY_SLIDER"
 
@@ -25,6 +35,10 @@ class PODFragment : Fragment() {
 
     private val viewModel: PODViewModel by lazy {
         ViewModelProvider(this)[PODViewModel::class.java]
+    }
+
+    private val podBDViewModel: PODBDViewModel by viewModels {
+        PODBDViewModel.PODViewModelFactory((activity?.application as App).repository)
     }
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
@@ -58,6 +72,8 @@ class PODFragment : Fragment() {
                     .addTransition(ChangeBounds())
                     .addTransition(ChangeImageTransform())
             )
+            if (isExpanded) is_favorite.visibility = View.GONE
+            else is_favorite.visibility = View.VISIBLE
 
             val params: ViewGroup.LayoutParams = image_pod_view.layoutParams
             params.height =
@@ -86,7 +102,6 @@ class PODFragment : Fragment() {
         }
     }
 
-
     private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
@@ -95,12 +110,22 @@ class PODFragment : Fragment() {
     private fun renderData(data: PODData) {
         when (data) {
             is PODData.Success -> {
-                image_pod_view_loading.visibility = View.GONE
+                image_pod_view_loading.visibility = View.VISIBLE
                 image_pod_view.visibility = View.VISIBLE
 
                 val serverResponseData = data.serverResponseData
                 val url = serverResponseData.url
-                val title = serverResponseData.title
+                val titleSpan = SpannableString(serverResponseData.title)
+                titleSpan.setSpan(
+                    ForegroundColorSpan(Color.RED),
+                    0, 1,
+                    Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+                )
+                titleSpan.setSpan(
+                    ForegroundColorSpan(Color.RED),
+                    titleSpan.length - 1, titleSpan.length,
+                    Spannable.SPAN_INCLUSIVE_EXCLUSIVE
+                )
                 val explanation = serverResponseData.explanation
 
                 if (url.isNullOrEmpty()) {
@@ -108,15 +133,17 @@ class PODFragment : Fragment() {
                 } else {
                     image_pod_view.load(url) {
                         lifecycle(this@PODFragment)
-                        error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.loading)
+                        error(R.drawable.ic_load_error_vector)
                     }
                 }
 
-                if (title.isNullOrEmpty() && explanation.isNullOrEmpty()) {
+                initToggleFavorite(data)
+
+                if (titleSpan.isEmpty() && explanation.isNullOrEmpty()) {
                     toast("Fact is empty")
                 } else {
-                    bottom_sheet_description_header.text = title
+                    bottom_sheet_description_header.text = titleSpan
                     bottom_sheet_description.text = explanation
                 }
             }
@@ -126,6 +153,31 @@ class PODFragment : Fragment() {
             }
             is PODData.Error -> {
                 toast(data.error.message)
+            }
+        }
+    }
+
+    private fun initToggleFavorite(data: PODData.Success) {
+        val pod =
+            POD(
+                data.serverResponseData.date.toString(),
+                data.serverResponseData.title.toString(),
+                data.serverResponseData.url.toString(),
+                data.serverResponseData.explanation.toString(),
+            )
+
+        podBDViewModel.allPods.observe(this, { podList ->
+            podList?.let {
+                val pods = podList
+                is_favorite.isChecked = pods.contains(pod)
+            }
+        })
+
+        is_favorite.setOnClickListener {
+            if (is_favorite.isChecked) {
+                podBDViewModel.insert(pod)
+            } else {
+                podBDViewModel.delete(pod)
             }
         }
     }

@@ -7,9 +7,15 @@
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/POD_image_background.xml" value="0.3769230769230769" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/bottom_sheet_background.xml" value="0.32037037037037036" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/color_nav_button_selected.xml" value="0.2518518518518518" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/color_span_selector.xml" value="0.1" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_archive.xml" value="0.29814814814814816" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_back_fab.xml" value="0.3828125" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_bookmark.xml" value="0.3828125" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_bookmark_off.xml" value="0.37037037037037035" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_bookmark_on.xml" value="0.37037037037037035" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_favorites_off.xml" value="0.4036458333333333" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_hamburger_menu_bottom_bar.xml" value="0.3828125" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.12037037037037036" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_load_error_vector.xml" value="0.3828125" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_no_photo_vector.xml" value="0.3828125" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_plus_fab.xml" value="0.3828125" />
@@ -20,20 +26,25 @@
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_utils.xml" value="0.37333333333333335" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/ic_wikipedia.xml" value="0.35648148148148145" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/pod_image_background.xml" value="0.3769230769230769" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/selector_like.xml" value="0.10833333333333334" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/drawable/splash_background_drawable.xml" value="0.31203703703703706" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/font/roboto_mono_thin.xml" value="0.36944444444444446" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/bottom_navigation_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/favorites_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/fragment_favorites.xml" value="0.36666666666666664" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/fragment_main_slider.xml" value="0.36302083333333335" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/fragment_main_slider_pod.xml" value="0.264" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/fragment_p_o_d_slider.xml" value="0.25364583333333335" />
-        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/fragment_pod.xml" value="0.1" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/fragment_pod.xml" value="0.4" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/fragment_settings.xml" value="0.4" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/fragment_slider_pod_adapter.xml" value="0.25364583333333335" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/fragment_util.xml" value="0.3489583333333333" />
-        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/fragment_utils.xml" value="0.1" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/fragment_utils.xml" value="0.4" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/fragment_utils_end.xml" value="0.36666666666666664" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/main_activity.xml" value="0.264" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/main_fragment.xml" value="0.4" />
+        <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/layout/pod_favorite_item_layout.xml" value="0.4" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/menu/menu_bottom_bar_other_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.36666666666666664" />
         <entry key="..\:/GB/app/AndroidMaterial/AppNASAPI/app/src/main/res/menu/menu_button_bar_navigation.xml" value="0.1" />

@@ -10,15 +10,14 @@
         android:id="@+id/theme_setting_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/layout_marginTop_title_settings"
         android:text="@string/selected_theme"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="@dimen/textSize_title_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <RadioGroup
         android:id="@+id/radio_group_theme"
@@ -41,9 +40,7 @@
             android:id="@+id/radiobutton_green_theme"
             style="@style/radiobutton"
             android:text="@string/ufo_theme" />
-
     </RadioGroup>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

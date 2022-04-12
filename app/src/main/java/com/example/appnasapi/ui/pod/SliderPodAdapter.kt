@@ -1,4 +1,4 @@
-package com.example.appnasapi
+package com.example.appnasapi.ui.pod
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

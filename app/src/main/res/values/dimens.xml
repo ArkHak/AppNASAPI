@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="marginHorizontal_pod_fragment">8dp</dimen>
+    <dimen name="marginHorizontal_pod_fragment">10dp</dimen>
     <dimen name="peek_height_bottom_sheet">100dp</dimen>
     <dimen name="margin_top_bottom_sheet_line">5dp</dimen>
     <dimen name="layout_height_bottom_sheet_line">1dp</dimen>
@@ -23,4 +23,29 @@
     <dimen name="topRightRadius_bottom_sheet">24dp</dimen>
     <dimen name="radius_pod_image_background">12dp</dimen>
     <dimen name="marginEnd_ic_wiki">16dp</dimen>
+    <dimen name="layout_w_is_favorite_toggle">36dp</dimen>
+    <dimen name="layout_h_is_favorite_toggle">36dp</dimen>
+    <dimen name="layout_marginTop_title_settings">8dp</dimen>
+    <dimen name="textSize_title_settings">16sp</dimen>
+    <dimen name="layout_margin_item_layout">6dp</dimen>
+    <dimen name="layout_h_podItem">128dp</dimen>
+    <dimen name="cornerRadius_podItem">8dp</dimen>
+    <dimen name="cardElevator_itemPod">3dp</dimen>
+    <dimen name="strokeWidth_itemPod">1dp</dimen>
+    <dimen name="layout_h_podCardImage">112dp</dimen>
+    <dimen name="layout_w_podCardImage">112dp</dimen>
+    <dimen name="layout_marginH_podCardImage">6dp</dimen>
+    <dimen name="cornerRadius_podCardImage">16dp</dimen>
+    <dimen name="cardElevation_podCardImage">3dp</dimen>
+    <dimen name="layout_marginT_podTitle">16dp</dimen>
+    <dimen name="textSize_podTitle">14sp</dimen>
+    <dimen name="layout_marginS_podDate">16dp</dimen>
+    <dimen name="textSize_podDate">14sp</dimen>
+    <dimen name="layout_marginH_moveItemPOD">10dp</dimen>
+    <dimen name="layout_marginH_podItemDescription">6dp</dimen>
+    <dimen name="cornerRadius_podItemDescription">8dp</dimen>
+    <dimen name="cardElevator_podItemDescription">3dp</dimen>
+    <dimen name="strokeWidth_podItemDescription">1dp</dimen>
+    <dimen name="padding_podTextDescription">6dp</dimen>
+    <dimen name="textSize_podTextDescription">12sp</dimen>
 </resources>
